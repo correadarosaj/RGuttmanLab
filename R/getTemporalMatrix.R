@@ -6,11 +6,16 @@ get.temporal.matrix<-function(dx = anx.d,
                               tsx = 'NL'
 ){
 
+  # build a long format dataframe
   mdx = reshape2::melt(dx,id.vars=c('SUBJID','timepoint','tissue'))
 
+  # filter by timpoint and tissue
+  if(is.null(tsx)){
+    mat.time   = mdx %>% filter(timepoint == tx)
+    }else{
+    mat.time   = mdx %>% filter(timepoint == tx  & tissue == tsx)
+  }
 
-  # filter by timepoint
-  mat.time   = mdx %>% filter(timepoint == tx  & tissue == tsx)
 
   # reshape to data matrix
   mat = reshape2::dcast(mat.time %>% dplyr::select(SUBJID, biomarker = variable,
