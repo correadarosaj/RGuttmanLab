@@ -17,9 +17,9 @@ get.temporal.matrix<-function(dx = anx.d,
   }
 
   # reshape to data matrix
-  mat = reshape2::dcast(mat.time %>% dplyr::select(SUBJID, biomarker = variable,expression = value),
-                        SUBJID~biomarker,value.var = 'expression'
-                        ) %>%
+  mat = reshape2::dcast(mat.time %>% dplyr::select(SUBJID, biomarker = variable,
+                                                   expression = value),
+                        SUBJID~biomarker,value.var = 'expression') %>%
     column_to_rownames(var = 'SUBJID')
 
   return(mat)
