@@ -5,6 +5,8 @@ extractMetadata = function(df,varnames,idvar){
                       na.omit() %>%
                       distinct())
 
+  names(list_df) = names(varnames)
+
   metadata = list_df %>% reduce(left_join , by = 'SUBJID')
 
   return(metadata)

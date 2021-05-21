@@ -1,10 +1,8 @@
 # dx is a dataframe with 3 metadata columns : SUBJID , timepoint and tissue
 # the remaining columns are biomarkers metrics
 
-getTemporalMatrix<-function(dx = anx.d,
-                              tx = 'V3',
-                              tsx = 'NL'
-){
+getTemporalMatrix<-function(dx,tx,tsx=NULL)
+  {
 
   # build a long format dataframe
   mdx = reshape2::melt(dx,id.vars=c('SUBJID','timepoint','tissue'))
