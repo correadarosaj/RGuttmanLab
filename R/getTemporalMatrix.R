@@ -1,7 +1,7 @@
 # dx is a dataframe with 3 metadata columns : SUBJID , timepoint and tissue
 # the remaining columns are biomarkers metrics
 
-get.temporal.matrix<-function(dx = anx.d,
+getTemporalMatrix<-function(dx = anx.d,
                               tx = 'V3',
                               tsx = 'NL'
 ){
